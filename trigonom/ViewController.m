@@ -35,7 +35,8 @@
     CGContextRef myContext = UIGraphicsGetCurrentContext();
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 0, 0, 1, 1);
     CGContextSetLineWidth(myContext, 1.0);
-    CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), 1, 1, 0, 1);
+    CGContextSetRGBFillColor(myContext, 1, 1, 0, 1);
+    CGContextSetShadow(myContext, CGSizeMake(-5, 5), 5.0);
     CGFloat r=velicina.width/4.5;
     CGPoint centar=CGPointMake(_drawImage.frame.size.width/2, _drawImage.frame.size.height/2);
     CGContextBeginPath (myContext);
