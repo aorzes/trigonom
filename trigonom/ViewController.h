@@ -2,14 +2,17 @@
 //  ViewController.h
 //  trigonom
 //
-//  Created by Anton Orzes on 05/06/16.
-//  Copyright © 2016 Anton Orzes. All rights reserved.
-//
 
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController
+{
+    CGSize velicina;
+}
 
+@property (weak, nonatomic) IBOutlet UIImageView *drawImage;
+@property (weak, nonatomic) IBOutlet UISlider *klizac; //postavi min/max 0-6,28
+@property (weak, nonatomic) IBOutlet UILabel *labela;
 
 @end
 
