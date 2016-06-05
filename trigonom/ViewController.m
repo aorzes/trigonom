@@ -36,7 +36,7 @@
     CGContextSetRGBStrokeColor(UIGraphicsGetCurrentContext(), 1, 0, 0, 1);
     CGContextSetLineWidth(myContext, 3.0);
     CGContextSetRGBFillColor(UIGraphicsGetCurrentContext(), 1, 1, 0, 1);
-    CGFloat r=velicina.width/4;
+    CGFloat r=velicina.width/4.5;
     CGPoint centar=CGPointMake(_drawImage.frame.size.width/2, _drawImage.frame.size.height/2);
     CGContextBeginPath (myContext);
     CGContextMoveToPoint (myContext,centar.x,centar.y);
@@ -61,7 +61,7 @@
     CGPoint centar=CGPointMake(_drawImage.frame.size.width/2, _drawImage.frame.size.height/2);
     CGRect kvadrat= CGRectMake(0, 0, 50, 20);
     //font je ralativan u odnosu na context
-    UIFont *font = [UIFont fontWithName:@"Arial" size:14];     // set text font
+    UIFont *font = [UIFont fontWithName:@"Arial" size:12];     // set text font
     NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     paragraphStyle.alignment = NSTextAlignmentCenter;
@@ -96,15 +96,22 @@
 -(void)crtajSkalu{
     CGPoint centar=CGPointMake(_drawImage.frame.size.width/2, _drawImage.frame.size.height/2);
     double angle=0;
-    CGFloat r=velicina.width/2;
+    CGFloat r=velicina.width/2.2;
     for (int i=0; i<16; i++){
         double xl=cos(angle)*r+centar.x;
         double yl=sin(angle)*r+centar.y;
         UIImageView *theDot = [[UIImageView alloc]init];
-        theDot.frame=CGRectMake(xl, yl, 10, 10);
+        theDot.frame=CGRectMake(xl, yl, 5, 20);
         theDot.center=CGPointMake(xl, yl);
-        theDot.backgroundColor=[UIColor grayColor];
-        theDot.layer.cornerRadius=5;
+        [theDot setTransform: CGAffineTransformMakeRotation(angle+M_PI_2)];
+        if (i%2==0) {
+            theDot.backgroundColor=[UIColor blackColor];
+        }
+        else
+        {
+            theDot.backgroundColor=[UIColor lightGrayColor];
+        }
+        theDot.layer.cornerRadius=2.4;
         [_drawImage addSubview:theDot];
         angle+=M_PI/8;
         
